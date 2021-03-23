@@ -18,3 +18,5 @@ When adding a Linux system to Observium (after running one of the SNMP setup scr
 * Auth Password should be the one set in the previous script.
 * Auth Algorithm should be MD5
 * Click Add device.
+
+For Windows, follow the steps in the Windows file.
