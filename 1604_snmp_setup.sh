@@ -2,6 +2,7 @@
 
 # date: 16/05/2019
 # dev: @Altersoundwork
+
 clear
 # Requirements & variable
 bold=$(tput bold)
