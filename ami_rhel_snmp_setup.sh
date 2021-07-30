@@ -1,8 +1,8 @@
 #!/bin/bash
-
+#
 # date: 05/09/2019
 # dev: @Altersoundwork
-
+#
 clear
 # Requirements & variable
 bold=$(tput bold)
