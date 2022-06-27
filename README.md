@@ -1,7 +1,7 @@
 # Observium-Tools
 Scripts to aid in Observium day to day tasks
 
-Remember to set the IPs and aliases in your system's host file (as Observium uses the hostname as the system name and so using just IPs would make it hard to identify the system.
+Remember to set the IPs and aliases in your system's host file (as Observium uses the hostname as the system name and so using just IPs would make it hard to identify the system).
 
 When adding a Linux system to Observium (after running one of the SNMP setup scripts).
 
