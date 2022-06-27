@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Updates any observium install to the latest version while backing up for security.
-# v0.2 - 29-07-2021
+# v0.2 - 27-06-2022
 # dev: @Altersoundwork
 #
 clear
@@ -13,13 +13,14 @@ echo "################"
 echo ${normal}
 #######################
 cd /opt
-sudo tar cvf observium_pre_update.tar.gz observium/
-sudo mv observium observium_pre_update
+sudo tar cvf observium_pre_update_$date.tar.gz observium/
+sudo mv observium observium_pre_update_$date
 sudo wget -Oobservium-community-latest.tar.gz https://www.observium.org/observium-community-latest.tar.gz
 sudo tar zxvf observium-community-latest.tar.gz
-sudo cp /opt/observium_pre_update/rrd observium/
-sudo cp /opt/observium_pre_update/logs observium/
-sudo cp /opt/observium_pre_update/config.php observium/
+sudo cp -r /opt/observium_pre_update_$date/rrd /opt/observium/
+sudo cp -r /opt/observium_pre_update_$date/logs /opt/observium/
+sudo chown -R www-data:www-data /opt/observium/rrd && sudo chown -R www-data:www-data /opt/observium/logs && sudo chmod -R 777 /opt/observium/rrd
+sudo cp /opt/observium_pre_update_$date/config.php /opt/observium/
 echo
 read -p "${bold}If you see no errors, we're now ready to perform the update. Do you wish to continue?${normal}" -n 1 -r
 echo
@@ -36,5 +37,6 @@ if [[ ! $REPLY =~ ^[Yy]$ ]]
 then
     [[ "$0" = "$BASH_SOURCE" ]] && echo && echo exit 1 || return 1
 fi
-/opt/observium/discovery.php -h all
-clear
+/opt/observium/discovery.php -h all && /opt/observium/poller.php -h all
+sudo rm observium-community-latest.tar.gz
+echo
