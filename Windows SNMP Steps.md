@@ -1,8 +1,3 @@
-# date: 16/05/2019
-# dev: @Altersoundwork
-
-clear
-
 *ATTENTION!* This guide assumes that this Windows PC, Server or Instance is already part of the your VLAN and that its VLAN IP is added to the Observium Instance's Host file.
 
 Normally neither Windows Server nor Windows 7/8/10 come with the SNMP service installed. To check, open a Powershell interface as administrator and run the following command:
